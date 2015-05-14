@@ -13,3 +13,7 @@ STATEMENT:  DELETE FROM "posts" WHERE "posts"."id" = $1
 ERROR:  relation "comment" does not exist at character 15
 STATEMENT:  select * from comment
 	;
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
