@@ -1,0 +1,15 @@
+LOG:  database system was shut down at 2015-05-13 22:13:13 CLT
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+FATAL:  database "blog_development" does not exist
+FATAL:  database "blog_development" does not exist
+FATAL:  terminating autovacuum process due to administrator command
+ERROR:  database "blog_development" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "blog_development"
+ERROR:  update or delete on table "posts" violates foreign key constraint "fk_rails_2fd19c0db7" on table "comments"
+DETAIL:  Key (id)=(1) is still referenced from table "comments".
+STATEMENT:  DELETE FROM "posts" WHERE "posts"."id" = $1
+ERROR:  relation "comment" does not exist at character 15
+STATEMENT:  select * from comment
+	;
