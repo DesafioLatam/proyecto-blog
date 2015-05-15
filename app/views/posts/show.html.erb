@@ -3,6 +3,7 @@
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
+  <small> | By: <%= @post.user.name %></small>
 </p>
 
 <p>
@@ -10,9 +11,11 @@
   <%= @post.content %>
 </p>
 
-<h2>Deja Tu Comentario</h2>
+<% if user_signed_in? %>
+	<h2>Deja Tu Comentario</h2>
+	<%= render 'comments/form' %>
+<% end %>
 
-<%= render 'comments/form' %>
 
 <h2>Comentarios (<%= @comments.count %>)</h2>
 
@@ -24,5 +27,8 @@
 
 
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<% if user_signed_in? %>
+	<%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
+
 <%= link_to 'Back', posts_path %>
