@@ -1,3 +1,9 @@
 <p><%= comment.user.name %></p>
 <p><%= comment.content %></p>
 <p><%= comment.created_at %></p>
+
+<% if can? :destroy, comment %>
+	<%= link_to 'Delete', post_comment_path(comment.post, comment), method: :delete %>
+<% end %>
+
+<hr>
