@@ -6,14 +6,15 @@ class Ability
     user ||= User.new
 
     if user.moderator?
-        can :manage, :all
+      can :manage, :all
     elsif user.guest?
-        can :read, :all
-        can :create, [Post, Comment]
-        can [:update, :destroy], [Post, Comment], user_id: user.id
+      can :read, :all
+      can :create, [Post, Comment]
+      can [:update, :destroy], [Post, Comment], user_id: user.id
     else
-        can :read, :all
+      can :read, :all
     end
 
   end
+
 end
