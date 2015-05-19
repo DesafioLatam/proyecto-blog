@@ -44,3 +44,6 @@ LOG:  database system is shut down
 LOG:  database system was shut down at 2015-05-18 22:09:41 CLT
 LOG:  autovacuum launcher started
 LOG:  database system is ready to accept connections
+LOG:  database system was shut down at 2015-05-19 16:29:46 CLT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
