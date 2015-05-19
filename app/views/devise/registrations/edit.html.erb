@@ -1,7 +1,20 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
   <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= image_tag(@user.avatar.thumb.url) %><br>
+    <%= f.check_box :remove_avatar %>
+    <%= f.label :remove_avatar, "Remove" %>
+  </div>
+  <div class="field">
+    <%= f.label :avatar, "Archivo" %>
+    <%= f.file_field :avatar %><br>
+    <%= f.label :remote_avatar_url, "Url" %>
+    <%= f.text_field :remote_avatar_url %>
+    <%= f.hidden_field :avatar_cache %>
+  </div>
 
   <div class="field">
     <%= f.label :name %><br />
