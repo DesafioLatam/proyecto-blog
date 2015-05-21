@@ -73,6 +73,22 @@ class PostsController < ApplicationController
     end
   end
 
+
+  def upvote
+    @post = Post.find(params[:id])
+    @vote = @post.votes.build(user: current_user)
+
+    if @post.user_votes.include? current_user
+      @post.votes.where(user: current_user).first.delete
+      redirect_to @post, notice: 'Tu voto se ha elimidado :('
+    elsif @vote.save
+      redirect_to @post, notice: 'Gracias por tu voto :D'
+    else
+      redirect_to @post, alert: 'Tu voto no se ha guardado :('
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

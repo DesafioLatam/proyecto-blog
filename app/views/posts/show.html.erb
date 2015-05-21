@@ -11,6 +11,17 @@
   <%= @post.content %>
 </p>
 
+<p>Votos: <strong><%= @post.votes.count %></strong></p>
+
+<p>Vota Aqui:
+	<% unless @post.user_votes.include? current_user %>
+		<%= link_to '+1', upvote_post_path(@post) %>
+	<% else %>
+		<%= link_to '-1', upvote_post_path(@post) %>
+	<% end %>
+</p>
+
+
 <% if user_signed_in? %>
 	<h2>Deja Tu Comentario</h2>
 	<%= render 'comments/form' %>

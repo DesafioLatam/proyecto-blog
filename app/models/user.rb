@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :identities, dependent: :destroy
+  has_many :votes
+  has_many :post_votes, through: :votes, source: :post
 
   enum role: [:guest, :moderator]
 

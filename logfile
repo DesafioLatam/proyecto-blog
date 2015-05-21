@@ -47,3 +47,16 @@ LOG:  database system is ready to accept connections
 LOG:  database system was shut down at 2015-05-19 16:29:46 CLT
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+FATAL:  the database system is starting up
+LOG:  database system was shut down at 2015-05-20 16:16:21 CLT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  relation "votes" already exists
+STATEMENT:  CREATE TABLE "votes" ("id" serial primary key, "user_id" integer, "post_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+ERROR:  database "blog_development" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "blog_development"
