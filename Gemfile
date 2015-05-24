@@ -62,5 +62,7 @@ group :development, :test do
   gem 'dotenv-rails'
 
   gem 'quiet_assets'
+
+  gem 'faker'
 end
 
