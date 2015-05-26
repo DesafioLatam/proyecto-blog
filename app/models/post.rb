@@ -15,4 +15,6 @@ class Post < ActiveRecord::Base
     self.user_votes.include? user
   end
 
+
+  multisearchable against: [:title, :content]
 end

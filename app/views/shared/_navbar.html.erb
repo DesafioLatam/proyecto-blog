@@ -1,3 +1,8 @@
+<form action="/">
+	<input type="search" placeholder="Bucar" name="query">
+	<input type="submit" value="Buscar">
+</form>
+
 <% unless user_signed_in? %>
 	<%= link_to 'Ingresar', new_user_session_path %>
 	<%= link_to 'Registrar', new_user_registration_path %>

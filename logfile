@@ -60,3 +60,21 @@ STATEMENT:  CREATE TABLE "votes" ("id" serial primary key, "user_id" integer, "p
 ERROR:  database "blog_development" is being accessed by other users
 DETAIL:  There is 1 other session using the database.
 STATEMENT:  DROP DATABASE IF EXISTS "blog_development"
+LOG:  could not connect socket for statistics collector: Software caused connection abort
+LOG:  trying another address for the statistics collector
+LOG:  could not connect socket for statistics collector: Software caused connection abort
+LOG:  trying another address for the statistics collector
+LOG:  could not connect socket for statistics collector: Software caused connection abort
+LOG:  disabling statistics collector for lack of working socket
+WARNING:  autovacuum not started because of misconfiguration
+HINT:  Enable the "track_counts" option.
+LOG:  database system was shut down at 2015-05-26 00:07:39 CLT
+LOG:  database system is ready to accept connections
+ERROR:  database "blog3_development" already exists
+STATEMENT:  CREATE DATABASE "blog3_development" ENCODING = 'unicode'
+ERROR:  database "blog3_test" already exists
+STATEMENT:  CREATE DATABASE "blog3_test" ENCODING = 'unicode'
+ERROR:  database "blog3_development" already exists
+STATEMENT:  CREATE DATABASE "blog3_development" ENCODING = 'unicode'
+ERROR:  database "blog3_test" already exists
+STATEMENT:  CREATE DATABASE "blog3_test" ENCODING = 'unicode'
