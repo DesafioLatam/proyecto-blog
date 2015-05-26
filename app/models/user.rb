@@ -15,10 +15,12 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :identities, dependent: :destroy
-  has_many :votes
-  has_many :post_votes, through: :votes, source: :post
 
-  enum role: [:guest, :moderator]
+  has_many :votes, as: :votable
+  has_many :post_votes, through: :votes, source: :post
+  has_many :comment_votes, through: :votes, source: :comment
+
+  enum role: [:guest, :moderator, :other]
 
   # Omniauth
   def self.find_for_oauth(auth, signed_in_resource = nil)

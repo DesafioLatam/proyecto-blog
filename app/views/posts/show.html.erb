@@ -13,16 +13,18 @@
 
 <p>Votos: <strong><%= @post.votes.count %></strong></p>
 
-<p>Vota Aqui:
-	<% unless @post.user_votes.include? current_user %>
-		<%= link_to '+1', upvote_post_path(@post) %>
-	<% else %>
-		<%= link_to '-1', upvote_post_path(@post) %>
-	<% end %>
-</p>
+<% if can? :upvote, Post %>
+	<p>Vota Aqui:
+		<% unless @post.voted_by? current_user %>
+			<%= link_to '+1', upvote_post_path(@post) %>
+		<% else %>
+			<%= link_to '-1', upvote_post_path(@post) %>
+		<% end %>
+	</p>
+<% end %>
 
 
-<% if user_signed_in? %>
+<% if can? :create, Comment %>
 	<h2>Deja Tu Comentario</h2>
 	<%= render 'comments/form' %>
 <% end %>

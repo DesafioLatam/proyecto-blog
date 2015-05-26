@@ -2,6 +2,18 @@
 
 <p><%= comment.content %></p>
 
+<p>Likes: <strong><%= comment.votes.count %></strong></p>
+
+<% if can? :upvote, Comment %>
+	<p>Like:
+		<% unless comment.voted_by? current_user %>
+			<%= link_to '+1', upvote_post_comment_path(@post, comment) %>
+		<% else %>
+			<%= link_to '-1', upvote_post_comment_path(@post, comment) %>
+		<% end %>
+	</p>
+<% end %>
+
 <% if can? :destroy, comment %>
 	<%= link_to 'Delete', post_comment_path(comment.post, comment), method: :delete %>
 <% end %>

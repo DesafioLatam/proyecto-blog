@@ -78,7 +78,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @vote = @post.votes.build(user: current_user)
 
-    if @post.user_votes.include? current_user
+    if @post.voted_by? current_user
       @post.votes.where(user: current_user).first.delete
       redirect_to @post, notice: 'Tu voto se ha elimidado :('
     elsif @vote.save

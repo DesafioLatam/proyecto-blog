@@ -29,6 +29,21 @@ class CommentsController < ApplicationController
     redirect_to @post
   end
 
+  def upvote
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @vote = @comment.votes.build(user: current_user)
+
+    if @comment.voted_by? current_user
+      @comment.votes.where(user: current_user).first.delete
+      redirect_to @post, notice: 'Tu voto se ha elimidado :('
+    elsif @vote.save
+      redirect_to @post, notice: 'Gracias por tu voto :D'
+    else
+      redirect_to @post, alert: 'Tu voto no se ha guardado :('
+    end
+  end
+
   private
     # proteccion antes de crear el objeto para evitar injeccion de datos,
     # solo permitir los siguientes
