@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
 
+  include PgSearch
+
   validates :title, presence: true
   validates :content, presence: true
 
@@ -12,4 +14,5 @@ class Post < ActiveRecord::Base
   def voted_by?(user)
     self.user_votes.include? user
   end
+
 end
