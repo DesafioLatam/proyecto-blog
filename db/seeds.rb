@@ -1,4 +1,4 @@
-seeUser.destroy_all
+User.destroy_all
 Post.destroy_all
 Comment.destroy_all
 
@@ -29,13 +29,13 @@ users = User.create([
   }
 ])
 
-5.times do
+100.times do
  posts << Post.create(title: Faker::Lorem.sentence(3, true, 4),
                       content: Faker::Lorem.paragraph(20, true, 10),
                       user: users.sample)
 end
 
-20.times do
+200.times do
   comments << Comment.create(content: Faker::Lorem.paragraph(2),
                              post: posts.sample,
                              user: users.sample)
