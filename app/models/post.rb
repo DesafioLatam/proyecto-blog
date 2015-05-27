@@ -21,4 +21,7 @@ class Post < ActiveRecord::Base
   pg_search_scope :search_by_title_or_content, against: [:title, :content]
   pg_search_scope :search_by_content, against: [:content]
   pg_search_scope :search_by_title, against: [:title]
+  pg_search_scope :search_by_author,
+    associated_against: { user: :name },
+    using: { tsearch: { prefix: true } }
 end

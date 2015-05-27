@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     # For pg_search_scope
 
     if params.key?(:query) && !params[:query].empty?
-      @posts = Post.search_by_title_or_content(params[:query])
+      @posts = Post.search_by_author(params[:query])
     else
       @posts = Post.all
     end

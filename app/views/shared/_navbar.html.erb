@@ -1,12 +1,14 @@
-<form action="/">
-	<input type="search" placeholder="Bucar" name="query">
-	<input type="submit" value="Buscar">
-</form>
+<p>
+	<% unless user_signed_in? %>
+		<%= link_to 'Ingresar', new_user_session_path %>
+		<%= link_to 'Registrar', new_user_registration_path %>
+	<% else %>
+		<%= link_to current_user.name, edit_user_registration_path %> | <small>Type: <%= current_user.role %></small>
+		<%= link_to 'Salir', destroy_user_session_path, method: :delete, data: { confirm: "Seguro que desea salir?" } %>
+	<% end %>
+</p>
 
-<% unless user_signed_in? %>
-	<%= link_to 'Ingresar', new_user_session_path %>
-	<%= link_to 'Registrar', new_user_registration_path %>
-<% else %>
-	<%= link_to current_user.name, edit_user_registration_path %> | <small>Type: <%= current_user.role %></small>
-	<%= link_to 'Salir', destroy_user_session_path, method: :delete, data: { confirm: "Seguro que desea salir?" } %>
+<%= form_tag('/', method: 'get') do %>
+  <%= search_field_tag :query, nil, placeholder: 'Buscar' %>
+  <%= submit_tag "Buscar" %>
 <% end %>
