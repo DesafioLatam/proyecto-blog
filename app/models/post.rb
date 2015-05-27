@@ -16,5 +16,9 @@ class Post < ActiveRecord::Base
   end
 
 
-  multisearchable against: [:title, :content]
+  # multisearchable against: [:title, :content]
+
+  pg_search_scope :search_by_title_or_content, against: [:title, :content]
+  pg_search_scope :search_by_content, against: [:content]
+  pg_search_scope :search_by_title, against: [:title]
 end
