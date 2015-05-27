@@ -6,8 +6,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    if params.has_key?(:query)
-      @posts = PgSearch.multisearch(params[:query])
+    @posts = []
+    if params.key?(:query) && !params[:query].empty?
+      PgSearch.multisearch(params[:query]).where(searchable_type: 'Post').find_each do |elem|
+        @posts << elem.searchable
+      end
     else
       @posts = Post.all
     end
