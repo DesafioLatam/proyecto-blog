@@ -15,10 +15,14 @@ class CommentsController < ApplicationController
     @comments = @post.comments.all
 
     # Ahora vamos a guardar el comentario en la base de datos
-    if @comment.save
-      redirect_to @post, notice: 'El comentario se guardo con éxito :)'
-    else
-      render 'posts/show'
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to @post, notice: 'Comentario creado'}
+        format.js
+      else
+        format.html { render 'posts/show'}
+        format.js
+      end
     end
   end
 
