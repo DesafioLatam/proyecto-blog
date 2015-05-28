@@ -1,1 +1,3 @@
-alert("El comentario ha sido creado")
+$('.comments').prepend("<%= j render @comment %>")
+$('.comments_count').text("(<%= j @post.comments.length.to_s %>)");
+$('#comment_content').val('');

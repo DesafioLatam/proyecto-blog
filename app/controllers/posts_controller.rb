@@ -32,7 +32,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     # tenemos que obtener todos los comentarios de este post y pasarlos a la vista
-    @comments = @post.comments.all
+    @comments = @post.comments.all.reverse
 
     # Creo una instancia de comment para que este disponible en la vista
     # @comment = Comment.new(post:@post)

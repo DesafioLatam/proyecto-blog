@@ -30,13 +30,15 @@
 <% end %>
 
 
-<h2>Comentarios (<%= @comments.count %>)</h2>
+<h2>Comentarios <span class="comments_count">(<%= @comments.count %>)</span></h2>
 
-<% if @comments.any? %>
-	<%= render partial: 'comments/comment', collection: @comments %>
-<% else %>
-	<p>No hay comentarios, se el primero en dejar el tuyo!!!! :D</p>
-<% end %>
+<div class="comments">
+	<% if @comments.any? %>
+		<%= render partial: 'comments/comment', collection: @comments %>
+	<% else %>
+		<p>No hay comentarios, se el primero en dejar el tuyo!!!! :D</p>
+	<% end %>
+</div>
 
 
 
