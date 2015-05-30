@@ -1,2 +1,5 @@
-$('#posts').html("<%= j render @posts %>")
-$('#paginator').html("<%= j paginate @posts %>");
+//$('#posts').html("<%= j render @posts %>")
+//$('#paginator').html("<%= j paginate @posts %>");
+
+$('#posts').append("<%= j render @posts %>");
+$('#view-more a').attr("href", "<%= j posts_path(page: @posts.current_page + 1) %>");

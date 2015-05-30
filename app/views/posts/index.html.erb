@@ -14,10 +14,27 @@
   </tbody>
 </table>
 <div id="paginator">
-  <%= paginate @posts %>
+  <p id="view-more">
+    <%= link_to 'Ver mas', url_for(page: @posts.current_page + 1)  %>
+  </p>
+  <%#= paginate @posts %>
 </div>
 <br>
 
 <% if can? :create, Post %>
   <%= link_to 'New Post', new_post_path %>
 <% end %>
+
+
+<script>
+  $(function() {
+    return $(window).scroll(function () {
+      var url;
+      url = $('#view-more a').attr('href');
+      if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+        $('#view-more a').attr('href', '');
+        return $.getScript(url);
+      }
+    });
+  });
+</script>

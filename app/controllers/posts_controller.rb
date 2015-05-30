@@ -22,9 +22,9 @@ class PostsController < ApplicationController
     # For pg_search_scope
 
     if params.key?(:query) && !params[:query].empty?
-      @posts = Post.search_by_author(params[:query]).page(params[:page]).per(5)
+      @posts = Post.search_by_author(params[:query]).page(params[:page]).per(10)
     else
-      @posts = Post.all.page(params[:page]).per(5)
+      @posts = Post.all.page(params[:page]).per(10)
     end
 
     respond_to do |format|
