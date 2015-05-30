@@ -26,6 +26,11 @@ class PostsController < ApplicationController
     else
       @posts = Post.all.page(params[:page]).per(5)
     end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /posts/1

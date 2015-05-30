@@ -12,3 +12,16 @@
   <%= search_field_tag :query, nil, placeholder: 'Buscar' %>
   <%= submit_tag "Buscar" %>
 <% end %>
+
+
+
+<script>
+	$('#query').keyup(function() {
+		$.ajax({
+			url: '/',
+			type: 'GET',
+			dataType: 'script',
+			data: {query: $(this).val()},
+		})
+	});
+</script>
