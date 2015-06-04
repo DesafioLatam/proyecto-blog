@@ -34,6 +34,8 @@ gem 'omniauth-twitter'
 gem 'fog'
 gem 'fog-aws'
 
+gem 'friendly_id', '~> 5.1.0'
+
 gem 'cancancan', '~> 1.10'
 
 gem 'pg_search'

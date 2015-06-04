@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  extend FriendlyId
 
   include PgSearch
 
@@ -10,6 +11,8 @@ class Post < ActiveRecord::Base
 
   has_many :votes, as: :votable
   has_many :user_votes, through: :votes, source: :user
+
+  friendly_id :title, use: [:slugged, :finders]
 
   def voted_by?(user)
     self.user_votes.include? user
