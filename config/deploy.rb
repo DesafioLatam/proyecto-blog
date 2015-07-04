@@ -9,7 +9,7 @@ set :deploy_via, :copy
 set :user, 'deploy'
 
 set :deploy_to, '/home/deploy/apps/superblog'
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml .env}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :deploy do
