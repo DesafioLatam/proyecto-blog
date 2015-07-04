@@ -8,7 +8,7 @@ require 'capistrano/deploy'
 require 'capistrano/rvm'
 require 'capistrano/bundler'
 require 'capistrano/rails'
-require 'capistrano/ssh-doctor'
+require 'capistrano/ssh_doctor'
 
 set :rvm_type, :user
 set :rvm_ruby_version, '2.2.2p95'
