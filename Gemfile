@@ -33,6 +33,8 @@ gem 'kaminari'
 
 gem 'rails_12factor', group: :production
 
+gem 'dotenv-rails'
+
 
 group :development, :test do
   gem 'byebug'
@@ -44,8 +46,6 @@ group :development, :test do
   gem 'pry-rails'
 
   gem 'better_errors'
-
-  gem 'dotenv-rails'
 
   gem 'quiet_assets'
 
