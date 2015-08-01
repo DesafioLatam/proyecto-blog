@@ -33,6 +33,8 @@ gem 'kaminari'
 
 gem 'dotenv-rails'
 
+gem 'ckeditor'
+
 
 group :development, :test do
   gem 'byebug'
@@ -52,7 +54,7 @@ group :development, :test do
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
-  gem 'capistrano-rvm', github: 'capistrano/rvm'
+  gem 'capistrano-rvm'
   gem 'capistrano-ssh-doctor'
 end
 

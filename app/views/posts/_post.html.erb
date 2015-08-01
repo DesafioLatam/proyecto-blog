@@ -1,6 +1,6 @@
 <tr>
   <td><%= post.title %></td>
-  <td><%= post.content %></td>
+  <td><%= post.content.html_safe %></td>
   <td><%= link_to 'Show', post %></td>
   <% if can? :update, post %>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
